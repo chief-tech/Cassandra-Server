@@ -1,1 +1,41 @@
 CREATE TABLE rider_profile{
+rider_id int PRIMARY KEY,
+rider_name text,
+phone_number int,
+gps_location int,
+rating int,
+credit_card_number int,
+facebook_id int,
+favorite_drivers text,
+stripe_token_id int,
+friends_list text,
+interests text,
+ride history int
+) WITH CLUSTERING ORDER BY (rider_id);
+
+CREATE TABLE driver_profile{
+driver_id int PRIMARY KEY,
+driver_name text,
+phone_number int,
+gps_location int,
+rating int,
+friends_list text,
+interests text,
+ride history int,
+bank_routing_number int
+) WITH CLUSTERING ORDER BY (driver_id);
+
+CREATE TABLE ride_log{
+ride_id int,
+start_time timestamp,
+end_time timestamp,
+duration int,
+start_location int,
+end_location int,
+rider_id int,
+driver_id int,
+rider_rating int,
+driver_rating int,
+price_total int
+) WITH CLUSTERING ORDER BY (ride_id);
+
